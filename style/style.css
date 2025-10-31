@@ -99,7 +99,16 @@ body {
 }
 
 .five .idea-5 {
-  font-size: 4rem;
+  font-size: 2.6rem;
+  line-height: 1.4;
+  padding: 0 16px;
+  white-space: pre-wrap; /* 保留换行符并自动换行 */
+  word-break: break-word; /* 避免长串字符溢出 */
+}
+
+/* 放大 text5Content 字体 */
+.five .idea-5 [data-node-name="text5Content"] {
+  font-size: 3.2rem;
 }
 
 .idea-5 span,
@@ -273,6 +282,17 @@ body {
 
   .idea-5 span {
     display: block;
+  }
+
+  .five .idea-5 {
+    font-size: 2rem; /* 小屏进一步减小字号，避免被裁切 */
+    line-height: 1.5;
+    padding: 0 12px;
+  }
+
+  /* 小屏下的 text5Content 字体 */
+  .five .idea-5 [data-node-name="text5Content"] {
+    font-size: 2.0rem;
   }
 
   .idea-6 span {
