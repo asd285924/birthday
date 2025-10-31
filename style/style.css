@@ -99,27 +99,18 @@ body {
 }
 
 .five .idea-5 {
-  font-size: 2.6rem;
-  line-height: 1.4;
   padding: 0 16px;
-  white-space: pre-wrap; /* 保留换行符并自动换行 */
-  word-break: break-word; /* 避免长串字符溢出 */
   text-align: center; /* 居中文本 */
 }
 
-/* 让 text5Entry（.idea-4）与 text5Content 视觉高度一致 */
-.five .idea-4 {
-  font-size: 3.2rem;
-  line-height: 1.4;
-  padding: 0 16px;
-  text-align: center;
-  white-space: pre-wrap;
-  word-break: break-word;
-}
+/* .idea-4 恢复默认样式，避免影响其他文案的高度 */
 
-/* 放大 text5Content 字体 */
+/* 仅针对 text5Content 的样式 */
 .five .idea-5 [data-node-name="text5Content"] {
   font-size: 3.2rem;
+  line-height: 1.4;
+  white-space: pre-wrap; /* 保留换行符并自动换行 */
+  word-break: break-word; /* 避免长串字符溢出 */
 }
 
 .idea-5 span,
@@ -296,23 +287,18 @@ body {
   }
 
   .five .idea-5 {
-    font-size: 2rem; /* 小屏进一步减小字号，避免被裁切 */
-    line-height: 1.5;
     padding: 0 12px;
   }
 
   /* 小屏下的 text5Content 字体 */
   .five .idea-5 [data-node-name="text5Content"] {
     font-size: 1.5rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-word;
   }
 
-  /* 小屏下让 text5Entry 与 text5Content 保持一致 */
-  .five .idea-4 {
-    font-size: 1.5rem;
-    line-height: 1.5;
-    padding: 0 12px;
-    text-align: center;
-  }
+  /* 保持 .idea-4 默认样式（不随 text5Content 改变） */
 
   /* 将第5幕整体上移，避免视觉上偏下；可在 8–12vh 间微调 */
   .five {
