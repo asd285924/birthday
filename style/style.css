@@ -107,6 +107,16 @@ body {
   text-align: center; /* 居中文本 */
 }
 
+/* 让 text5Entry（.idea-4）与 text5Content 视觉高度一致 */
+.five .idea-4 {
+  font-size: 3.2rem;
+  line-height: 1.4;
+  padding: 0 16px;
+  text-align: center;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
 /* 放大 text5Content 字体 */
 .five .idea-5 [data-node-name="text5Content"] {
   font-size: 3.2rem;
@@ -294,6 +304,14 @@ body {
   /* 小屏下的 text5Content 字体 */
   .five .idea-5 [data-node-name="text5Content"] {
     font-size: 1.5rem;
+  }
+
+  /* 小屏下让 text5Entry 与 text5Content 保持一致 */
+  .five .idea-4 {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    padding: 0 12px;
+    text-align: center;
   }
 
   /* 将第5幕整体上移，避免视觉上偏下；可在 8–12vh 间微调 */
