@@ -104,6 +104,7 @@ body {
   padding: 0 16px;
   white-space: pre-wrap; /* 保留换行符并自动换行 */
   word-break: break-word; /* 避免长串字符溢出 */
+  text-align: center; /* 居中文本 */
 }
 
 /* 放大 text5Content 字体 */
@@ -293,6 +294,11 @@ body {
   /* 小屏下的 text5Content 字体 */
   .five .idea-5 [data-node-name="text5Content"] {
     font-size: 1.5rem;
+  }
+
+  /* 将第5幕整体上移，避免视觉上偏下；可在 8–12vh 间微调 */
+  .five {
+    top: 10vh;
   }
 
   .idea-6 span {
