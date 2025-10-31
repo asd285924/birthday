@@ -24,6 +24,31 @@ const fetchData = () => {
     });
 };
 
+// Dynamically position and size the hat relative to the display picture
+const positionHat = () => {
+  const container = document.querySelector(".six");
+  const dp = document.querySelector(".lydia-dp");
+  const hat = document.querySelector(".hat");
+  if (!container || !dp || !hat) return;
+
+  const containerRect = container.getBoundingClientRect();
+  const dpRect = dp.getBoundingClientRect();
+
+  // Size the hat as a fraction of the image width (tweakable)
+  const hatWidthPx = Math.round(dpRect.width * 0.22);
+  hat.style.width = `${hatWidthPx}px`;
+
+  // Place near the top-center of the image with slight offsets (tweakable)
+  const offsetX = dpRect.width * 0.02; // move a bit to the right
+  const offsetY = dpRect.height * -0.08; // slightly above
+
+  const leftPx = (dpRect.left - containerRect.left) + dpRect.width * 0.5 - hatWidthPx * 0.5 + offsetX;
+  const topPx = (dpRect.top - containerRect.top) + dpRect.height * 0.12 + offsetY;
+
+  hat.style.left = `${leftPx}px`;
+  hat.style.top = `${topPx}px`;
+};
+
 // Animation Timeline
 const animationTimeline = () => {
   // Spit chars that needs to be animated individually
@@ -220,6 +245,7 @@ const animationTimeline = () => {
       },
       "-=2"
     )
+    .call(positionHat)
     .from(".hat", 0.5, {
       x: -100,
       y: 350,
@@ -304,3 +330,6 @@ const animationTimeline = () => {
 
 // Run fetch and animation in sequence
 fetchData();
+
+// Reposition hat on resize/orientation changes
+window.addEventListener("resize", positionHat);
