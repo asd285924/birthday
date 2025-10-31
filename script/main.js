@@ -35,15 +35,19 @@ const positionHat = () => {
   const dpRect = dp.getBoundingClientRect();
 
   // Size the hat as a fraction of the image width (tweakable)
-  const hatWidthPx = Math.round(dpRect.width * 0.22);
+  const hatWidthPx = Math.round(dpRect.width * 0.18);
   hat.style.width = `${hatWidthPx}px`;
 
-  // Place near the top-center of the image with slight offsets (tweakable)
-  const offsetX = dpRect.width * 0.02; // move a bit to the right
-  const offsetY = dpRect.height * -0.08; // slightly above
+  // Get resulting hat height after width is applied
+  const hatHeightPx = Math.max(hat.getBoundingClientRect().height, hatWidthPx);
 
-  const leftPx = (dpRect.left - containerRect.left) + dpRect.width * 0.5 - hatWidthPx * 0.5 + offsetX;
-  const topPx = (dpRect.top - containerRect.top) + dpRect.height * 0.12 + offsetY;
+  // Anchor near the very top of the image, then lift hat so其底部贴近发际线
+  const offsetX = dpRect.width * 0.02; // slight right shift
+  const anchorX = (dpRect.left - containerRect.left) + dpRect.width * 0.5;
+  const anchorY = (dpRect.top - containerRect.top) + dpRect.height * 0.06; // close to image top
+
+  const leftPx = anchorX - hatWidthPx * 0.5 + offsetX;
+  const topPx = anchorY - hatHeightPx * 0.8; // lift hat so it sits above the head
 
   hat.style.left = `${leftPx}px`;
   hat.style.top = `${topPx}px`;
